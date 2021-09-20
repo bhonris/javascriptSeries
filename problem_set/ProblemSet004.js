@@ -3,6 +3,7 @@
 // function getBinary(number) => string
 // bonus:
 // 1. with Recursion, without Recursion
+
 function getBinaryNumber(num){
     return ""
 }
@@ -10,12 +11,12 @@ function getBinaryNumber(num){
 // 7 => "111"
 // 54 => "110110"
 
-31
-15r1 => "1"
- 7r1 => "11"
- 3r1 => "111"
- 1r1 => "1111"
- 0r1 => "11111"
+// 31
+// 15r1 => "1"
+//  7r1 => "11"
+//  3r1 => "111"
+//  1r1 => "1111"
+//  0r1 => "11111"
 
 
 
