@@ -10,16 +10,11 @@ async function loadANumber() {
 }
 
 async function resolveY() {
-    const x = await loadANumber();
+    const x = loadANumber();
     console.log(`value has returned: ${x}`)
     return x + 1
 }
 let y = 5
-resolveY().then(value => {
-    y = value
-    console.log(`value of y: ${value}`)
-})
-console.log(y);
 
 
 let A = 3;
@@ -38,7 +33,7 @@ async function funcB() {
 async function main() {
     funcA()
     funcB()
-    console.log(A)
+    console.logA()
 }
 
 main()
