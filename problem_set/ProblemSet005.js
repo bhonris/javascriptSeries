@@ -1,7 +1,7 @@
 // Problem 1: Unique
 // Write a function which determins whether a string has all unique characters
 // (string) => boolean
-function isStringUnique(aString) {
+function isCharacterUnique(aString) {
     return false
 }
 // isStringUnique("a") => true
@@ -28,6 +28,8 @@ function removeDuplicate(anArray){
 // removeDuplicate([1,3,4,6,3,7,4]) => [1,3,4,6,7]
 
 // Problem 4: is Palindrome
+// asdf => fdsa
+// queen => neeuq
 // check to see whether a string is a palindrome or not
 // (string) => boolean
 function isPalindrome(aString){
