@@ -2,7 +2,7 @@
 // write a code to generate binary number from decimal numbers
 // function getBinary(number) => string
 // bonus:
-// 1. with Recursion, without Recursion
+// 1. with Recursion, without Recursio  n
 
 function getBinaryNumber(num){
     return ""
@@ -53,12 +53,18 @@ const LENGTH = [
 ]
 const INIT_LENGTH_1 = 8 
 const INIT_LENGTH_2 = 9
-
-function getMaxPrice(initLength, length=LENGTH){
-    return -1
+function getMaxPrice(initLength, length=LENGTH, price=0){
+    if(initLength === 0) return price
+    if(initLength < 0) return 0
+    let curMax = -1;
+    for(let i =0; i < length.length; i ++){
+        const current = length[i]
+        curMax = Math.max(curMax, getMaxPrice(initLength - current.length, length, price + current.price))
+    }
+    return curMax
 }
-console.log(getMaxPrice(INIT_LENGTH_1)) // Expected Result: 22 
-console.log(getMaxPrice(INIT_LENGTH_2)) // Expected Result: 25
+// console.log(getMaxPrice(INIT_LENGTH_1)) // Expected Result: 22 
+// console.log(getMaxPrice(INIT_LENGTH_2)) // Expected Result: 25
 // Coin Change
 // 
 // def getCoinChangeCombinations(sum=5, denominations=[1,2,5]):
@@ -68,3 +74,43 @@ console.log(getMaxPrice(INIT_LENGTH_2)) // Expected Result: 25
 //       for e in denominations:
 //          result += getCoinChangeCombinations(sum - e, denominations)
 //      return result
+
+function fibonacciTD(N, memo = new Map()){
+    if(N === 0 || N === 1) return 1
+    const maybeAnswer = memo.get(N);
+    if(maybeAnswer){
+        return maybeAnswer
+    }
+    const first = fibonacciTD(N-1, memo)
+    const second = fibonacciTD(N-2, memo)
+    const result = first + second;
+    memo.set(N, result);
+    return result
+}
+// F(6)
+// F(5)          +    F(4)
+// F(4) + F(3)   +    F(3) + F(2)
+
+function fibonacciBU(N){
+    let currentValue = -1;
+    let nMinus1 = 1
+    let nMinus2 = 1;
+    if(N < 2) return 1;
+    for(let i = 2; i <= N; i ++){
+        currentValue = nMinus1 + nMinus2
+        nMinus2 = nMinus1
+        nMinus1 = currentValue
+    }
+    return currentValue
+}
+// n! = n*(n-1)!
+// loop cV, n-1, n-2
+//  0   -1,  1,  1
+//  1    2,  2,  1
+//  2    3,  3,  2
+//  3    5,  5,  3
+for(let i = 0; i < 10; i ++){
+    console.log(fibonacciBU(i))
+}
+
+// 1 1 2 3 5 8 13
